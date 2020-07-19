@@ -15,50 +15,110 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./fonts/Roboto-Black.ttf" />
-    <link rel="stylesheet" href="./fonts/OpenSans-Regular.ttf" />
-    <link rel="stylesheet" href="./fonts/OpenSans-SemiBold.ttf" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <section id="block1" class="block1">
       <div class="container">
-        <h1>Съешь этих мягких французских булок</h1>
-        Съешь этих мягких французских булок
-        Съешь этих мягких французских булок
-        Съешь этих мягких французских булок
-        Съешь этих мягких французских булок
+        <div class="row">
+          <div class="col">
+            <div class="block1__transcriptopn">
+              <div class="block1__orange-border"></div>
+              <h1>
+                <span>Будущее</span><br />
+                уже рядом
+              </h1>
+              В жилом квартале "Центральный" реализована концепция нового города
+              будущего. Это следующий уровень астраханского девелопмента &mdash;
+              комплекс <strong>повышенной комфортности</strong>
+            </div>
+
+            <ul class="block1__menu d-flex float-right">
+              <li id="link" slide="1" class="d-flex align-items-center active">
+                Будущее уже рядом
+              </li>
+              <li id="link" slide="2" class="d-flex align-items-center">
+                Высокое качество
+              </li>
+              <li id="link" slide="3" class="d-flex align-items-center">
+                Не просто дома
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Slider main container -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="./img/1-min.png" id="slide-img" alt="Будущее уже рядом" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/1-min.png" id="slide-img" alt="Высокое качество" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/1-min.png" id="slide-img" alt="Не просто дома" />
+            </div>
+          </div>
+
+          <!-- If we need navigation buttons -->
+          <div class="sweeper-arrows">
+            <div class="swiper-button-prev-kis">
+              &larr;
+              <!-- <i class="fa fa-long-arrow-left" aria-hidden="true"></i> -->
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination-kis">
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-button-next-kis">
+              &rarr;
+              <!-- <i class="fa fa-long-arrow-right" aria-hidden="true"></i> -->
+            </div>
+          </div>
+
+          <!-- If we need scrollbar -->
+          <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="block1__additional">
+            <div class="block1__orange-border"></div>
+            <h1>
+              <span>Будущее</span><br />
+              уже рядом
+            </h1>
+            В жилом квартале "Центральный" реализована концепция нового города
+            будущего. Это следующий уровень астраханского девелопмента &mdash;
+            комплекс <strong>повышенной комфортности</strong>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="block2" class="block2">
-      <div class="container"></div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quos
+        perferendis deserunt obcaecati cum assumenda sint? Ex excepturi error
+        magnam nesciunt officia, nisi, soluta, ut veniam deserunt placeat
+        asperiores sapiente!
+      </div>
     </section>
 
     <section id="block3" class="block3">
       <div class="container"></div>
     </section>
-
-    <!-- Slider main container -->
-    <div class="swiper-container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
-    </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
