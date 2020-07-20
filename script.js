@@ -1,26 +1,3 @@
-var mySwiper = new Swiper(".swiper-container", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
-  height: "450px",
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next-kis",
-    prevEl: ".swiper-button-prev-kis",
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-});
-
 const block1Slides = [
   {
     title: "Будущее уже рядом",
@@ -66,6 +43,38 @@ const blockBorder = `<div class="block1__orange-border"></div>`;
 const deviceWidth = document.documentElement.clientWidth;
 const minName = 3;
   
+
+
+var mySwiper = new Swiper(".swiper-container", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  height: "450px",
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next-kis",
+    prevEl: ".swiper-button-prev-kis",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+
+});
+
+mySwiper.on('slideChange', () => {
+  const curSlide = +mySwiper.realIndex + 1;
+  updateSlides(curSlide);
+  updateLinks(curSlide);
+})
+
 if (deviceWidth < 768) {
   document.querySelectorAll('#slide-img').forEach(el => {
     el.style.height = '300px';
@@ -78,28 +87,22 @@ document.querySelectorAll('#link').forEach(el => {
       link.classList.remove('active');
     });
     event.target.classList.add('active');
-    updateSlides(event.target.getAttribute('slide'));
+    updateSlides(event.target.getAttribute('slide'), true);
   })
 })
 
-function updateSlides(curSlide) {
+function updateSlides(curSlide, toSlide = false) {
   document.querySelector('.block1__transcriptopn').innerHTML = blockBorder + block1Slides.find(el => el.slideNumber === +curSlide).content;
   document.querySelector('.block1__additional').innerHTML = blockBorder + block1Slides.find(el => el.slideNumber === +curSlide).content;
-  mySwiper.slideTo(+curSlide, 300, false);
+  toSlide ? mySwiper.slideTo(+curSlide, 300, false) : null;
 }
 
-document.querySelectorAll('[role="button"]').forEach(el => { 
-  el.addEventListener('click', event => {
-    let curSlide = mySwiper.activeIndex;
-    if (curSlide === 0) {curSlide = block1Slides.length};
-    if (curSlide > block1Slides.length) {curSlide = 1};
-    updateSlides(curSlide);
-    document.querySelectorAll('#link').forEach(el => {
-      el.classList.remove('active');
-      +el.getAttribute('slide') === curSlide ? el.classList.add('active') : null;
-    })
+function updateLinks(curSlide) {
+  document.querySelectorAll('#link').forEach(el => {
+    el.classList.remove('active');
+    +el.getAttribute('slide') === curSlide ? el.classList.add('active') : null;
   })
-})
+}
 
 function questionsHandler(event) {
   event.preventDefault();
@@ -117,6 +120,7 @@ function questionsHandler(event) {
     return;
   }
   
+  cleanForm();
   sendData(formData);
 }
 
@@ -146,6 +150,11 @@ function checkPhone(phone, id) {
   phone.length === 0 ? result=false : result=true;
   result ? elSuccess(id) : elError(id);
   return result;
+}
+
+function cleanForm() {
+  document.getElementById('name').value = '';
+  document.getElementById('phone').value = '';
 }
 
 function sendData(formData) {
