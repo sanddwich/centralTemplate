@@ -64,6 +64,7 @@ const block1Slides = [
 
 const blockBorder = `<div class="block1__orange-border"></div>`;
 const deviceWidth = document.documentElement.clientWidth;
+const minName = 3;
   
 if (deviceWidth < 768) {
   document.querySelectorAll('#slide-img').forEach(el => {
@@ -99,3 +100,54 @@ document.querySelectorAll('[role="button"]').forEach(el => {
     })
   })
 })
+
+function questionsHandler(event) {
+  event.preventDefault();
+  let formData = null;
+
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+
+  const nameRes = checkName(name, 'name');  
+  const phoneRes = checkPhone(phone, 'phone');
+
+  if (checkName(name, 'name') && checkPhone(phone, 'phone')) {
+    formData = {name, phone};
+  } else {
+    return;
+  }
+  
+  sendData(formData);
+}
+
+function nameHandler(event) {
+  checkName(event.target.value, event.target.getAttribute('id'));
+}
+
+function elError(id) {
+  document.getElementById(id).style.border = 'red solid 1px';
+  document.querySelector(`[for="${id}"]`).style.color = 'red';
+}
+
+function elSuccess(id) {
+  document.getElementById(id).style.border = null;
+  document.querySelector(`[for="${id}"]`).style.color = null;
+}
+
+function checkName(name, id) {
+  let result = null;
+  name.length < minName ? result=false : result=true;
+  result ? elSuccess(id) : elError(id);
+  return result;
+}
+
+function checkPhone(phone, id) {
+  let result = null;
+  phone.length === 0 ? result=false : result=true;
+  result ? elSuccess(id) : elError(id);
+  return result;
+}
+
+function sendData(formData) {
+  alert(`Вами отправлены данныe: ${formData.name}, ${formData.phone}`);
+}

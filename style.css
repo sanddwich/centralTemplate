@@ -207,7 +207,63 @@ span {
   background-color: white;
   box-shadow: 1px 1px 5px #D9D9D9;
   box-sizing: border-box;
+}
 
+.block3__form form {
+  margin-top: 30px;
+}
+
+.block3__content {
+  margin-top: -150px;
+}
+
+.label-input {
+  display: inline-block;
+}
+
+.label-input input[type="text"] {
+  color: #ABABAB;
+  background-color: #F9F9F9;
+  text-align: center;
+  padding: 15px;
+  margin-right: 20px;
+  box-shadow: 1px 1px 5px #D9D9D9;
+  font-size: 16px;
+}
+
+.kis-button {
+  background-color: #EB641C;
+  border-radius: 0;
+  padding: 17px;
+  color: white;
+  font-size: 16px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.kis-button:active, .kis-button:hover, .kis-button:target {
+  color: white;
+  background-color: #E55000;
+}
+
+.confidential {
+  font-size: 14px;
+}
+
+.confidential a, .confidential a:hover, .confidential a:active, .confidential a:target, .confidential a:focus {
+  font-size: 14px;
+  color: black;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.label-input label {
+  position: absolute;
+  margin-top: -35px;
+  color: #C2C2C2;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .block3__orange-border {
@@ -302,6 +358,13 @@ span {
   }
   .block3__form {
     width: 450px;
+  }
+  .label-input {
+    margin-bottom: 50px;
+  }
+  .kis-button {
+    margin-top: -30px;
+    margin-bottom: 20px;
   }
 }
 
