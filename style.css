@@ -65,7 +65,8 @@ h1, h2, h3, h4, h5 {
   width: 200px;
   display: flex;
   color: black;
-  margin-top: -80px;
+  margin-top: -75px;
+  margin-left: -5px;
   padding-left: 50px;
   box-sizing: border-box;
   padding-top: 30px;
@@ -93,6 +94,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .swiper-button-prev-kis {
+  margin-left: 5px;
 }
 
 .swiper-container, .swiper-wrapper, .swiper-slide {
@@ -297,7 +299,7 @@ span {
   }
   .sweeper-arrows {
     padding-left: 0;
-    margin-left: -2px;
+    /* margin-left: -2px; */
   }
   .swiper-button-next-kis {
     margin-left: 60px;
@@ -365,6 +367,9 @@ span {
   .kis-button {
     margin-top: -30px;
     margin-bottom: 20px;
+  }
+  .swiper-button-prev-kis, .swiper-button-next-kis {
+    margin-top: 5px;
   }
 }
 

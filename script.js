@@ -111,9 +111,6 @@ function questionsHandler(event) {
   const name = document.getElementById('name').value;
   const phone = document.getElementById('phone').value;
 
-  const nameRes = checkName(name, 'name');  
-  const phoneRes = checkPhone(phone, 'phone');
-
   if (checkName(name, 'name') && checkPhone(phone, 'phone')) {
     formData = {name, phone};
   } else {
